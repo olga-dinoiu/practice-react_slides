@@ -1,3 +1,4 @@
+require('../scss/App.scss');
 var RootView = require('./views/RootView');
 var $ = require('jquery');
 
