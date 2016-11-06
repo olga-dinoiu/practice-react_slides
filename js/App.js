@@ -1,5 +1,10 @@
-require('../scss/App.scss');
-var RootView = require('./views/RootView');
-var $ = require('jquery');
+import '../scss/App.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Viewport from './Viewport';
 
-new RootView({el: $('#root-view')}).render();
+ReactDOM.render(
+    <Viewport/>,
+    document.getElementById('root')
+);
+
