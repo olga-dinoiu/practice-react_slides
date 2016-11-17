@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Viewport from './Viewport';
 
 ReactDOM.render(
-    <Viewport/>,
+    <Viewport />,
     document.getElementById('root')
 );
 
