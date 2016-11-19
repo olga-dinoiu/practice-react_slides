@@ -2,6 +2,15 @@ import React, {Component} from 'react';
 import SlideList from './SlideList';
 import SlideEditor from './SlideEditor';
 
+/**
+ * TODO
+ * 1. remove slide
+ * 2. select slide
+ * 3. edit slide from right hand panel
+ * 4. add description in slide
+ * 5. css styling
+ */
+
 class Viewport extends Component {
     constructor(props) {
         super(props);
