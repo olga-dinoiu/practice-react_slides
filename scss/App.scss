@@ -1,74 +1,42 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
 #root {
-  padding: 0;
-  margin: 0;
-  background: #D8D8D8;
+  background: #FAFAFA;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
 
-  .container {
-    background: #D8D8D8;
-    height: 100vh;
-    clear: both;
+  .slide-preview {
+    background: white;
+    border: 1px solid #444444;
   }
-
-  .the-slide {
-    background: #fff;
-    width: 100%;
-    height: 70%;
-    border: 2px solid #acb2b7;
-
-  }
-  .nav-list {
-    width: 20%;
-    height: 100vh;
-    border-right: solid 5px #444444;
-    float: left;
-    clear: both;
-  }
-  .preview {
-    width: 100%;
-    height: 150px;
-    background-color: #fff;
-
-  }
-
-  .preview-item {
-    width: 80%;
-    height: 30vh;
-    margin: 10% 5%;
-    list-style: none;
-
-  }
-  .btn {
-    display: inline-block;
-    font-size: 30px;
-    width: 50%;
-    text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    background: #bdc3c7;
-    border: 1px solid #acb2b7;
-    box-shadow: inset 0 -2px #acb2b7;
-
-  }
-
-  .btn:hover {
-    background: #F0F0F0;
-    color: #D8D8D8;
-    cursor: pointer;
-  }
-  button:focus {
-    outline: 0;
-  }
-
 
   .slide-list {
-    width: 60%;
-    height: 100vh;
-    float: right;
-    margin: 50px 100px 0 0;
-    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
 
+    .slide-list-item {
+      background: #EEEEEE;
+      border: 1px solid #AAAAAA;
+      padding: 5px;
+      margin-bottom: 5px;
+
+      .row {
+        margin: 0;
+      }
+
+      .slide-thumbnail {
+        height: 50px;
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 10px;
+      }
+    }
   }
-  .slide-item {
-    width: 100%;
-    height: 100vh;
+
+  .slide-editor {
+    margin: 10px;
+    padding: 10px;
   }
 }

@@ -1,51 +1,67 @@
-import React from 'react';
+import React, {Component} from 'react';
+import SlideList from './SlideList';
+import SlideEditor from './SlideEditor';
 
+class Viewport extends Component {
+    constructor(props) {
+        super(props);
+        this.slideIds = 0;
 
-//=======================
-//         CLASSES
-// ======================
+        const firstSlide = this.createSlide();
+        this.state = {
+            slides: [firstSlide],
+            selected: firstSlide.id
+        };
+    }
 
-const Slide = () => (
-    <div className="the-slide" />
-);
+    createSlide() {
+        const id = ++this.slideIds;
 
-const Navigation  = () => (
-        <ul className="nav-list">
-                <li className="preview-item" >
-                    <Slide className="preview" />
-                    <Btn name="+" /*onClick={addSlide} */ />
-                    <Btn name="-" /*onClick={deleteSlide} */ />
-                </li>
-        </ul>
-)
+        return {
+            id: id,
+            title: `Untitled ${id}`
+        };
+    }
 
+    findSlide(id) {
+        return this.state.slides.filter(slide => slide.id === id)[0];
+    }
 
-const SlideList = () => (
-    <ul className="slide-list">
-        <li className="slide-item active"><Slide /></li>
-    </ul>
-);
+    getSelectedSlide() {
+        return this.findSlide(this.state.selected);
+    }
 
-const Viewport  = () => (
-   <div className="container">
-      <Navigation />
-      <SlideList />
-   </div>
-);
+    onAdd(slideIdToAddAfter) {
+        const insertAt = this.state.slides.indexOf(this.findSlide(slideIdToAddAfter)) + 1;
+        const newSlide = this.createSlide();
+        const slides = Array.from(this.state.slides);
 
+        slides.splice(insertAt, 0, newSlide);
 
+        const newState = {
+            slides: slides,
+            selected: newSlide.id
+        };
 
-// ====================
-//      FUNCTIONS
-// ====================
+        this.setState(newState);
+    }
 
-function Btn(props) {
-    return (
-        <button className="btn">{props.name} </button>
-    )
-};
+    onRemove() {
 
+    }
 
-
+    render() {
+        return (
+            <div className="row">
+                <div className="col-sm-3">
+                    <SlideList onAdd={this.onAdd.bind(this)} onRemove={this.onRemove.bind(this)} slides={this.state.slides}/>
+                </div>
+                <div className="col-sm-9">
+                    <SlideEditor slide={this.getSelectedSlide()}/>
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Viewport;
