@@ -5,6 +5,7 @@ import SlideEditor from './SlideEditor';
 /**
  * TODO
  * - add description in slide
+ * - save slides to local storage
  * - add slide background image or color
  * - css styling
  */
