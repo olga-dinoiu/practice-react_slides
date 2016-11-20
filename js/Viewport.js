@@ -4,7 +4,6 @@ import SlideEditor from './SlideEditor';
 
 /**
  * TODO
- * - active slide state
  * - edit slide from right hand panel
  * - add description in slide
  * - css styling
@@ -82,7 +81,13 @@ class Viewport extends Component {
         return (
             <div className="row">
                 <div className="col-sm-3">
-                    <SlideList onSelect={this.onSelect.bind(this)} onAdd={this.onAdd.bind(this)} onRemove={this.onRemove.bind(this)} slides={this.state.slides}/>
+                    <SlideList 
+                        onSelect={this.onSelect.bind(this)} 
+                        onAdd={this.onAdd.bind(this)}
+                        onRemove={this.onRemove.bind(this)} 
+                        slides={this.state.slides}
+                        selected={this.state.selected}
+                    />
                 </div>
                 <div className="col-sm-9">
                     <SlideEditor slide={this.getSelectedSlide()}/>
