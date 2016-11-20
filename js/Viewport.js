@@ -55,8 +55,22 @@ class Viewport extends Component {
         this.setState(newState);
     }
 
-    onRemove() {
+    onRemove(id) {
+        const deleteAt = this.state.slides.indexOf(this.findSlide(id));
+        const slides = Array.from(this.state.slides);
 
+        slides.splice(deleteAt, 1);
+
+        const newState = {
+            slides: slides,
+            selected: this.state.selected
+        };
+
+        if (this.state.selected == id) {
+            newState.selected = slides[deleteAt].id
+        }
+
+        this.setState(newState);
     }
 
     render() {
