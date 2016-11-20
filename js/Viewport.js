@@ -4,11 +4,10 @@ import SlideEditor from './SlideEditor';
 
 /**
  * TODO
- * 1. remove slide
- * 2. select slide
- * 3. edit slide from right hand panel
- * 4. add description in slide
- * 5. css styling
+ * - active slide state
+ * - edit slide from right hand panel
+ * - add description in slide
+ * - css styling
  */
 
 class Viewport extends Component {
@@ -67,17 +66,23 @@ class Viewport extends Component {
         };
 
         if (this.state.selected == id) {
-            newState.selected = slides[deleteAt].id
+            newState.selected = slides[Math.min(deleteAt, slides.length - 1)].id
         }
 
         this.setState(newState);
+    }
+
+    onSelect(id) {
+        this.setState({
+            selected: id
+        });
     }
 
     render() {
         return (
             <div className="row">
                 <div className="col-sm-3">
-                    <SlideList onAdd={this.onAdd.bind(this)} onRemove={this.onRemove.bind(this)} slides={this.state.slides}/>
+                    <SlideList onSelect={this.onSelect.bind(this)} onAdd={this.onAdd.bind(this)} onRemove={this.onRemove.bind(this)} slides={this.state.slides}/>
                 </div>
                 <div className="col-sm-9">
                     <SlideEditor slide={this.getSelectedSlide()}/>
