@@ -4,8 +4,8 @@ import SlideEditor from './SlideEditor';
 
 /**
  * TODO
- * - edit slide from right hand panel
  * - add description in slide
+ * - add slide background image or color
  * - css styling
  */
 
@@ -77,6 +77,21 @@ class Viewport extends Component {
         });
     }
 
+    /**
+     * @param id - Id of the slide that was edited
+     * @param key - Title or description or whatever was edited
+     * @param value - Value of the title or description
+     */
+    onEdit(id, key, value) {
+        console.info(`Slide ${id} has been updated with "${key}" being "${value}"`);
+
+        const slideEdited = this.findSlide(id);
+
+        slideEdited[key] = value;
+
+        this.forceUpdate();
+    }
+
     render() {
         return (
             <div className="row">
@@ -90,7 +105,7 @@ class Viewport extends Component {
                     />
                 </div>
                 <div className="col-sm-9">
-                    <SlideEditor slide={this.getSelectedSlide()}/>
+                    <SlideEditor slide={this.getSelectedSlide()} onEdit={this.onEdit.bind(this)}/>
                 </div>
             </div>
         );
