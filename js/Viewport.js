@@ -18,7 +18,8 @@ class Viewport extends Component {
         const firstSlide = this.createSlide();
         this.state = {
             slides: [firstSlide],
-            selected: firstSlide.id
+            selected: firstSlide.id,
+            
         };
     }
 
@@ -27,7 +28,8 @@ class Viewport extends Component {
 
         return {
             id: id,
-            title: `Untitled ${id}`
+            title: `Untitled ${id}`,
+            description: `Click to add a description `
         };
     }
 

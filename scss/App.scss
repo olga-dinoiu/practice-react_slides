@@ -41,6 +41,13 @@
         &:hover, &.active {
           background: #EEEEEE;
         }
+
+        p {
+          text-align: center;
+          margin: 10px;
+          margin-top: 20px;
+          font-size: 9px;
+        }
       }
     }
   }
@@ -59,8 +66,53 @@
       }
     }
 
-    h1 {
+    h1,
+    p {
       text-align: center;
+    }
+
+    p {
+      margin: 20px;
+      margin-top: 50px;
+      font-size: 16px;
+    }
+
+  }
+
+  .tool-bar {
+    border: 1px solid black;
+    height: 35px;
+    margin-top: 20px;
+
+    .bg-color {
+      border-right: 1px solid black;
+
+      ul {
+        list-style-type:: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin: 5px;
+
+        }
+
+        .red {
+          background: red;
+        }
+
+        .blue {
+          background: #00b3ee;
+        }
+
+        .yellow {
+          background: #ffff00;
+        }
+      }
     }
   }
 }
