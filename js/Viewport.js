@@ -4,9 +4,8 @@ import SlideEditor from './SlideEditor';
 
 /**
  * TODO
- * - add description in slide
  * - save slides to local storage
- * - add slide background image or color
+ * - add slide background image
  * - css styling
  */
 
@@ -18,8 +17,7 @@ class Viewport extends Component {
         const firstSlide = this.createSlide();
         this.state = {
             slides: [firstSlide],
-            selected: firstSlide.id,
-            
+            selected: firstSlide.id
         };
     }
 
@@ -29,7 +27,8 @@ class Viewport extends Component {
         return {
             id: id,
             title: `Untitled ${id}`,
-            description: `Click to add a description `
+            description: `Click to add a description`,
+            backgroundColor: 'white'
         };
     }
 
@@ -92,7 +91,7 @@ class Viewport extends Component {
 
         slideEdited[key] = value;
 
-        this.forceUpdate();
+        this.setState({});
     }
 
     render() {

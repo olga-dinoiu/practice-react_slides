@@ -53,9 +53,15 @@
   }
 
   .slide-editor {
-    margin: 10px;
-    padding: 10px;
-    min-height: 500px;
+    .tool-bar {
+      margin: 10px;
+    }
+
+    .slide-preview {
+      min-height: 500px;
+      margin: 10px;
+      padding: 10px;
+    }
 
     [contenteditable] {
       border: 1px dashed transparent;
@@ -81,14 +87,15 @@
 
   .tool-bar {
     border: 1px solid black;
-    height: 35px;
+    height: 36px;
     margin-top: 20px;
 
     .bg-color {
+      display: inline-block;
       border-right: 1px solid black;
 
       ul {
-        list-style-type:: none;
+        list-style-type: none;
         display: inline-block;
         margin: 0;
         padding: 0;
@@ -98,19 +105,6 @@
           width: 20px;
           height: 20px;
           margin: 5px;
-
-        }
-
-        .red {
-          background: red;
-        }
-
-        .blue {
-          background: #00b3ee;
-        }
-
-        .yellow {
-          background: #ffff00;
         }
       }
     }
