@@ -28,7 +28,8 @@ class Viewport extends Component {
             id: id,
             title: `Untitled ${id}`,
             description: `Click to add a description`,
-            backgroundColor: 'white'
+            backgroundColor: 'white',
+            backgroundImage: ''
         };
     }
 

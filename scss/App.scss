@@ -61,6 +61,7 @@
       min-height: 500px;
       margin: 10px;
       padding: 10px;
+      background-repeat: repeat;
     }
 
     [contenteditable] {
@@ -90,7 +91,8 @@
     height: 36px;
     margin-top: 20px;
 
-    .bg-color {
+    .bg-color,
+    .bg-pattern{
       display: inline-block;
       border-right: 1px solid black;
 
@@ -105,6 +107,8 @@
           width: 20px;
           height: 20px;
           margin: 5px;
+          cursor: pointer;
+          background-size: 20px 20px;
         }
       }
     }
