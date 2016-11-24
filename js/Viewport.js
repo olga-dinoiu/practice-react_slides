@@ -4,25 +4,53 @@ import SlideEditor from './SlideEditor';
 
 /**
  * TODO
- * - save slides to local storage
- * - add slide background image
+ * - duplicate slide
  * - css styling
  */
 
 class Viewport extends Component {
     constructor(props) {
         super(props);
-        this.slideIds = 0;
+        this.slideIds = this.getLocalStored('slideIds', 0);
 
-        const firstSlide = this.createSlide();
-        this.state = {
-            slides: [firstSlide],
-            selected: firstSlide.id
-        };
+        const localState = this.getLocalStored('state', null);
+
+        if (localState == null) {
+            const firstSlide = this.createSlide();
+
+            this.state = {
+                slides: [firstSlide],
+                selected: firstSlide.id
+            };
+        } else {
+            this.state = localState;
+        }
+    }
+
+    getLocalStored(key, defaultValue) {
+        const localStored = JSON.parse(localStorage.getItem(key));
+
+        if (localStored != null) {
+            return localStored;
+        }
+
+        return defaultValue;
+    }
+
+    setLocalStored(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    setState(newState) {
+        super.setState(newState, () => {
+            this.setLocalStored('state', this.state);
+        });
     }
 
     createSlide() {
         const id = ++this.slideIds;
+
+        this.setLocalStored('slideIds', this.slideIds);
 
         return {
             id: id,
@@ -99,10 +127,10 @@ class Viewport extends Component {
         return (
             <div className="row">
                 <div className="col-sm-3">
-                    <SlideList 
-                        onSelect={this.onSelect.bind(this)} 
+                    <SlideList
+                        onSelect={this.onSelect.bind(this)}
                         onAdd={this.onAdd.bind(this)}
-                        onRemove={this.onRemove.bind(this)} 
+                        onRemove={this.onRemove.bind(this)}
                         slides={this.state.slides}
                         selected={this.state.selected}
                     />
