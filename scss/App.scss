@@ -39,7 +39,7 @@
         }
 
         &:hover, &.active {
-          background: #EEEEEE;
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
         }
 
         p {
@@ -92,7 +92,7 @@
     margin-top: 20px;
 
     .bg-color,
-    .bg-pattern{
+    .bg-pattern {
       display: inline-block;
       border-right: 1px solid black;
 

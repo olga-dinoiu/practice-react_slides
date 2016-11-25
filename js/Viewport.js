@@ -69,9 +69,19 @@ class Viewport extends Component {
         return this.findSlide(this.state.selected);
     }
 
-    onAdd(slideIdToAddAfter) {
-        const insertAt = this.state.slides.indexOf(this.findSlide(slideIdToAddAfter)) + 1;
+    duplicateSlide(slide) {
         const newSlide = this.createSlide();
+        const id = newSlide.id;
+
+        Object.assign(newSlide, slide, {
+            id: id
+        });
+
+        return newSlide;
+    }
+
+    add(newSlide, slideIdToAddAfter) {
+        const insertAt = this.state.slides.indexOf(this.findSlide(slideIdToAddAfter)) + 1;
         const slides = Array.from(this.state.slides);
 
         slides.splice(insertAt, 0, newSlide);
@@ -82,6 +92,14 @@ class Viewport extends Component {
         };
 
         this.setState(newState);
+    }
+
+    onDuplicate(slide) {
+        this.add(this.duplicateSlide(slide), slide.id);
+    }
+
+    onAdd(slideIdToAddAfter) {
+        this.add(this.createSlide(), slideIdToAddAfter);
     }
 
     onRemove(id) {
@@ -133,6 +151,7 @@ class Viewport extends Component {
                         onRemove={this.onRemove.bind(this)}
                         slides={this.state.slides}
                         selected={this.state.selected}
+                        onDuplicate={this.onDuplicate.bind(this)}
                     />
                 </div>
                 <div className="col-sm-9">
