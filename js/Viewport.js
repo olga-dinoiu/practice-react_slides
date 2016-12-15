@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 import SlideList from './SlideList';
 import SlideEditor from './SlideEditor';
 
-/**
- * TODO
- * - duplicate slide
- * - css styling
- */
-
 class Viewport extends Component {
     constructor(props) {
         super(props);
