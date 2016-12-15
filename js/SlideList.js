@@ -10,9 +10,9 @@ const SlideList = ({slides, onAdd, onRemove, onSelect, selected, onDuplicate}) =
                     <p>{slide.description}</p>
                 </div>
                 <div className="row">
-                    <button onClick={slides.length > 1 ? () => onRemove(slide.id) : null} className={`col-sm-4 btn btn-danger ${slides.length === 1 ? 'disabled' : ''}`}>-</button>
-                    <button onClick={() => onAdd(slide.id)} className="col-sm-4 btn btn-success">+</button>
-                    <button onClick={() => onDuplicate(slide)} className="col-sm-4 btn btn-info">x2</button>
+                    <button onClick={slides.length > 1 ? () => onRemove(slide.id) : null} className={`col-sm-1 btn btn-danger ${slides.length === 1 ? 'disabled' : ''}`}><img src="img/delete-bin-icon.png" alt="Delete Slide"/></button>
+                    <button onClick={() => onAdd(slide.id)} className="col-sm-1 btn btn-success"><img src="img/add-icon.png" alt="Add New Slide"/></button>
+                    <button onClick={() => onDuplicate(slide)} className="col-sm-1 btn btn-info"><img src="img/duplicate-icon.png" alt="Duplicate Slide"/></button>
                 </div>
             </li>
         ))}

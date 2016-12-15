@@ -8,22 +8,38 @@
 
   .slide-preview {
     background: white;
-    border: 1px solid #444444;
+    box-shadow: 3px 0px 109px -9px rgba(15,1,15,0.35);
   }
 
   .slide-list {
     list-style-type: none;
     padding: 0;
-    margin: 10px;
+    margin: 22px;
 
     .slide-list-item {
       background: #EEEEEE;
       border: 1px solid #AAAAAA;
       padding: 5px;
       margin-bottom: 5px;
+      height: 190px;
 
       .row {
         margin: 0;
+        background-color: #545151;
+
+        .btn-danger,
+        .btn-success,
+        .btn-info {
+          background-color: #545151;
+          box-shadow: none;
+          border: none;
+          margin: 1px;
+        }
+
+        img {
+          width: 15px;
+          height: 15px;
+        }
       }
 
       .slide-thumbnail {
@@ -32,6 +48,7 @@
         margin-bottom: 5px;
         padding: 10px;
         cursor: pointer;
+        height: 140px;
 
         h6 {
           text-align: center;
@@ -55,11 +72,15 @@
   .slide-editor {
     .tool-bar {
       margin: 10px;
+      margin-bottom: 0;
+      box-shadow: inset 0px 1px 3px 0px #91b8b3;
+      background-color: #545151;
     }
 
     .slide-preview {
       min-height: 500px;
       margin: 10px;
+      margin-top: 0;
       padding: 10px;
       background-repeat: repeat;
     }

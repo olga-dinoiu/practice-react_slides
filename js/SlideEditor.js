@@ -5,11 +5,15 @@ class SlideEditor extends Component {
         const slide = this.props.slide;
         const colors = [
             'white',
-            'rgba(255, 0, 0, 0.5)',
-            'yellow'
+            '#a6a6a6',
+            '#ffcce6',
+            '#ff6666',
+            '#ffb380',
+            '#39ac73',
+            '#66a3ff'
         ];
         const patterns = [
-            'img/remove.png',
+            'img/delete-bin-icon.png',
             'img/blue-pattern.jpg',
             'img/green-pattern.jpg',
             'img/pink-pattern.jpg'

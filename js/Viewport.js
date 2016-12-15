@@ -154,8 +154,10 @@ class Viewport extends Component {
                         onDuplicate={this.onDuplicate.bind(this)}
                     />
                 </div>
-                <div className="col-sm-9">
+                <div className="col-sm-8">
                     <SlideEditor slide={this.getSelectedSlide()} onEdit={this.onEdit.bind(this)}/>
+                </div>
+                <div className="col-sm-8">
                 </div>
             </div>
         );
