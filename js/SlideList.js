@@ -4,8 +4,15 @@ const SlideList = ({slides, onAdd, onRemove, onSelect, selected, onDuplicate}) =
     <ul className="slide-list">
         {slides.map(slide => (
             <li className="slide-list-item" key={slide.id}>
-                <div style={{backgroundColor: slide.backgroundColor, backgroundImage: slide.backgroundImage}} onClick={() => onSelect(slide.id)} className={`slide-thumbnail slide-preview ${slide.id === selected ? 'active' : ''}`}>
-                    
+                <div
+                    style={{
+                        backgroundColor: slide.backgroundColor, 
+                        backgroundImage: slide.backgroundImage, 
+                        color: slide.titleColor
+                    }} 
+                    onClick={() => onSelect(slide.id)}
+                    className={`slide-thumbnail slide-preview ${slide.id === selected ? 'active' : ''}`}
+                >
                     <h6>{slide.title}</h6>
                     <p>{slide.description}</p>
                 </div>

@@ -44,10 +44,24 @@ class SlideEditor extends Component {
                             ))}
                         </ul>
                     </div>
+                    <div className="title-color">
+                        <ul>
+                            {colors.map(color => (
+                                <li style={{backgroundColor: color}} onClick={() => {
+                                    this.saveTitleColor(color);
+                                }}></li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
                 <div className="slide-preview"
                      style={{backgroundColor: slide.backgroundColor, backgroundImage: slide.backgroundImage }}>
-                    <h1 ref={ref => this.titleDOMNode = ref} contentEditable="true" onBlur={this.saveTitle.bind(this)}>
+                    <h1 
+                        ref={ref => this.titleDOMNode = ref} 
+                        contentEditable="true" 
+                        onBlur={this.saveTitle.bind(this)}
+                        style={{color: slide.titleColor}}
+                    >
                         {slide.title}
                     </h1>
                     <p ref={ref => this.descriptionDOMNode = ref} contentEditable="true"
@@ -62,6 +76,10 @@ class SlideEditor extends Component {
 
     saveBackgroundColor(color) {
         this.save('backgroundColor', color);
+    }
+
+    saveTitleColor(color) {
+        this.save('titleColor', color);
     }
 
     saveBackgroundImage(pattern) {
